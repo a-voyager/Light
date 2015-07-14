@@ -11,8 +11,17 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
+	/**
+	 * 记录状态
+	 */
 	private boolean flag = true;
+	/**
+	 * 图片按钮
+	 */
 	private ImageView iv_switch;
+	/**
+	 * 安卓相机对象
+	 */
 	private Camera camera;
 
 	@Override
@@ -43,11 +52,17 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 	}
 
+	/**
+	 * 关闭闪光灯
+	 */
 	private void closeFlash() {
 		camera.stopPreview();
 		camera.release();
 	}
 
+	/**
+	 * 打开闪光灯
+	 */
 	private void openFlash() {
 		camera = Camera.open();
 		if (camera == null) {
