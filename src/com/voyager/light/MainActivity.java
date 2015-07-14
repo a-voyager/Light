@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	private boolean flag = false;
+	private boolean flag = true;
 	private ImageView iv_switch;
 	private Camera camera;
 
@@ -26,15 +27,14 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.iv_switch:
-			flag = true;
 			if (flag) {
 				openFlash();
-				flag = !flag;
 				iv_switch.setImageResource(R.drawable.switch_on);
+				flag = !flag;
 			} else {
 				closeFlash();
-				flag = !flag;
 				iv_switch.setImageResource(R.drawable.switch_off);
+				flag = !flag;
 			}
 			break;
 
@@ -44,19 +44,26 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	private void closeFlash() {
-		if (camera != null) {
-			camera.stopPreview();
-			camera.release();
-		}
+		camera.stopPreview();
+		camera.release();
 	}
 
 	private void openFlash() {
 		camera = Camera.open();
+		if (camera == null) {
+			Toast.makeText(MainActivity.this, "对不起，您的设备不支持闪光灯", 0).show();
+			return;
+		}
 		Parameters parameters = camera.getParameters();
 		parameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
-		parameters.setFocusMode(Parameters.FOCUS_MODE_AUTO);
 		camera.setParameters(parameters);
 		camera.startPreview();
+	}
+
+	@Override
+	protected void onDestroy() {
+		closeFlash();
+		super.onDestroy();
 	}
 
 }
