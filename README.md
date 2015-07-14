@@ -1,20 +1,21 @@
 # Light
-°²×¿ÊÖµçÍ²Ó¦ÓÃ
-# Ğ§¹ûÍ¼
->>![img](https://github.com/w19961009/Light/raw/master/light/screenshots/0.png)
->>![img](https://github.com/w19961009/Light/raw/master/light/screenshots/1.png)
->>![img](https://github.com/w19961009/Light/raw/master/light/screenshots/2.png)
-# ºËĞÄ´úÂë
->>¿ªÆôÉÁ¹âµÆ
-		camera = Camera.open();
-		Parameters parameters = camera.getParameters();
-		parameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
-		camera.setParameters(parameters);
-		camera.startPreview();
->>¹Ø±ÕÉÁ¹âµÆ
-		camera.stopPreview();
-		camera.release();
-# µ¼Èë
-Ê¹ÓÃeclipseµ¼ÈëÊ¹ÓÃ
-# author
+å®‰å“æ‰‹ç”µç­’åº”ç”¨
+>>
+# æ•ˆæœå›¾
+![img](https://github.com/w19961009/Light/raw/master/screenshots/0.png)
+![img](https://github.com/w19961009/Light/raw/master/screenshots/1.png)
+![img](https://github.com/w19961009/Light/raw/master/screenshots/2.png)
+# æ ¸å¿ƒä»£ç 
+##å¼€å¯é—ªå…‰ç¯
+		camera = Camera.open();<br>
+		Parameters parameters = camera.getParameters();<br>
+		parameters.setFlashMode(Parameters.FLASH_MODE_TORCH);<br>
+		camera.setParameters(parameters);<br>
+		camera.startPreview();<br>
+##å…³é—­é—ªå…‰ç¯
+		camera.stopPreview();<br>
+		camera.release();<br>
+# å¯¼å…¥
+ä½¿ç”¨eclipseå¯¼å…¥ä½¿ç”¨
+# ä½œè€…
 wuhaojie
